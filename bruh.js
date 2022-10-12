@@ -96,7 +96,7 @@ const w = v("NoDelete"),
                                     ...t,
                                     color: "#f04747",
                                     edited_timestamp: "invalid_timestamp",
-                                    content: t.content + " `[deleted]`",
+                                    content: t.content + " ***(message was deleted)***",
                                     guild_id: S.getChannel(t.channel_id).guild_id
                                 },
                                 log_edit: !1
@@ -112,7 +112,7 @@ const w = v("NoDelete"),
                             try {
                                 if (!n[0].edited_timestamp._isValid) return
                             } catch {}
-                            n[0].message.content = d.content + " `[edited]`\n" + n[0].message.content;
+                            n[0].message.content = d.content.replaceAll("***(еdited)***", "") + " \n" + n[0].message.content + "***(еdited)***";
                             return
                         } catch (d) {
                             console.log("[NoDelete Error]", d)
